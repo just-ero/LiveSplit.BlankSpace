@@ -39,9 +39,9 @@ namespace LiveSplit.UI.Components
         public static void DrawBackground(Graphics g, Color settingsColor1, Color settingsColor2, 
             float width, float height, GradientType gradientType)
         {
-            if (settingsColor1.ToArgb() != Color.Transparent.ToArgb()
+            if (settingsColor1.A > 0
             || gradientType != GradientType.Plain
-            && settingsColor2.ToArgb() != Color.Transparent.ToArgb())
+            && settingsColor2.A > 0)
             {
                 var gradientBrush = new LinearGradientBrush(
                             new PointF(0, 0),
