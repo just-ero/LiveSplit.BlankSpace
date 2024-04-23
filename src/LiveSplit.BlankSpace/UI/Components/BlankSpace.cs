@@ -1,12 +1,10 @@
-﻿using LiveSplit.Model;
-using LiveSplit.TimeFormatters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.Linq;
 using System.Windows.Forms;
+
+using LiveSplit.Model;
 
 namespace LiveSplit.UI.Components
 {
@@ -36,12 +34,12 @@ namespace LiveSplit.UI.Components
             Settings = new BlankSpaceSettings();
         }
 
-        public static void DrawBackground(Graphics g, Color settingsColor1, Color settingsColor2, 
+        public static void DrawBackground(Graphics g, Color settingsColor1, Color settingsColor2,
             float width, float height, GradientType gradientType)
         {
             if (settingsColor1.A > 0
-            || gradientType != GradientType.Plain
-            && settingsColor2.A > 0)
+            || (gradientType != GradientType.Plain
+            && settingsColor2.A > 0))
             {
                 var gradientBrush = new LinearGradientBrush(
                             new PointF(0, 0),
@@ -95,6 +93,9 @@ namespace LiveSplit.UI.Components
         {
         }
 
-        public int GetSettingsHashCode() => Settings.GetSettingsHashCode();
+        public int GetSettingsHashCode()
+        {
+            return Settings.GetSettingsHashCode();
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using LiveSplit.TimeFormatters;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Xml;
@@ -36,7 +35,7 @@ namespace LiveSplit.UI.Components
             btnColor2.DataBindings.Add("BackColor", this, "BackgroundColor2", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        void cmbGradientType_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbGradientType_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedText = cmbGradientType.SelectedItem.ToString();
             btnColor1.Visible = selectedText != "Plain";
@@ -45,7 +44,7 @@ namespace LiveSplit.UI.Components
             GradientString = cmbGradientType.SelectedItem.ToString();
         }
 
-        void BlankSpaceSettings_Load(object sender, EventArgs e)
+        private void BlankSpaceSettings_Load(object sender, EventArgs e)
         {
             if (Mode == LayoutMode.Horizontal)
             {
